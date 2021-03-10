@@ -1,0 +1,23 @@
+{
+  "name": "audio-only-rtmp-streamer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "audio-only-rtmp-streamer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ffiirree/audio-only-rtmp-streamer.git"
+  },
+  "keywords": [
+    "rtmp",
+    "flash"
+  ],
+  "author": "zhliangqi",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ffiirree/audio-only-rtmp-streamer/issues"
+  },
+  "homepage": "https://github.com/ffiirree/audio-only-rtmp-streamer#readme"
+}
