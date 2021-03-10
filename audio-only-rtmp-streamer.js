@@ -36,6 +36,7 @@ define('audio-only-rtmp-streamer', function () {
             _elem.disconnect();
         };
 
+        // Microphone
         this.setMicQuality = function (quality) {
             _elem.setMicQuality(quality);
         };
@@ -50,6 +51,10 @@ define('audio-only-rtmp-streamer', function () {
 
         this.setUseEchoSuppression = function(useEchoSuppression) {
             _elem.setUseEchoSuppression(useEchoSuppression);
+        }
+
+        this.setGain = function(gain) {
+            _elem.setGain(gain)
         }
     };
 });

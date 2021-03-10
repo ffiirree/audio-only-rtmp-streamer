@@ -65,6 +65,8 @@ public class AudioOnlyRtmpStreamer extends MovieClip {
         ExternalInterface.addCallback("setMicQuality", setMicQuality);
         ExternalInterface.addCallback("setMicRate", setMicRate);
         ExternalInterface.addCallback("setSilenceLevel", setSilenceLevel)
+        ExternalInterface.addCallback("setUseEchoSuppression", setUseEchoSuppression)
+        ExternalInterface.addCallback("setGain", setGain)
         ExternalInterface.addCallback("publish", publish);
         ExternalInterface.addCallback("disconnect", disconnect);
 
@@ -86,6 +88,14 @@ public class AudioOnlyRtmpStreamer extends MovieClip {
         _micSilenceLevel = silenceLevel;
     }
 
+    public function setUseEchoSuppression(useEchoSuppression:Boolean):void {
+        _micUseEchoSuppression = useEchoSuppression;
+    }
+
+    public function setGain(gain:Number):void {
+        _micGain = gain;
+    }
+
     public function publish(url:String, name:String):void {
         this.connect(url, name, function (name:String):void {
             publishStream(name);
@@ -99,7 +109,7 @@ public class AudioOnlyRtmpStreamer extends MovieClip {
     private function connect(url:String, name:String, callback:Function):void {
         nc = new NetConnection();
         nc.addEventListener(NetStatusEvent.NET_STATUS, function (event:NetStatusEvent):void {
-            ExternalInterface.call("console.log", "try to connect to " + url);
+            ExternalInterface.call("console.log", "try to connect to " + url + "/" + name);
             ExternalInterface.call("console.log", event.info.code);
             if (event.info.code == "NetConnection.Connect.Success") {
                 callback(name);
